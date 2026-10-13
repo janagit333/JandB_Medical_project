@@ -36,11 +36,8 @@ export class logginHomepage {
         this.namefeild = page.locator('#name');
     }
 
-    async navigateToLoginPage() {
-        await this.page.goto(
-            'https://ems-jbm-dev.jandbmedical.com/jandb-admin/accounts/accounts/edit-account/15198',
-            { waitUntil: 'domcontentloaded' }
-        );
+    async navigateToLoginPage(url: string) {
+        await this.page.goto(url, { waitUntil: 'domcontentloaded' });
         await this.page.waitForLoadState('networkidle');
     }
 

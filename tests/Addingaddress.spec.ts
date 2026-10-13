@@ -1,11 +1,11 @@
-import { test } from '@playwright/test';
+import { test } from '../Fixters/Logginfixture';
 import { logginHomepage } from '../Pages_POM/Logginpage';
 import { AddingAddressPage } from '../Pages_POM/addingaddres';
 
 
-test('adds an address to an account', async ({ page }) => {
+test('adds an address to an account', async ({ page, loginUrl }) => {
     const homepage = new logginHomepage(page);
-    await homepage.navigateToLoginPage();
+    await homepage.navigateToLoginPage(loginUrl);
     await homepage.loginIntoApplication('deven', 'Infotech@1');
     await homepage.verifyAdminName();
     await homepage.clickAccountsFromSidebar();

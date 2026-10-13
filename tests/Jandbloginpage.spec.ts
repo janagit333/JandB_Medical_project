@@ -1,9 +1,9 @@
-import { test, expect } from '@playwright/test';
+import { test, expect } from '../Fixters/Logginfixture';
 import { logginHomepage } from '../Pages_POM/Logginpage';
 
-test('login to admin and update account description', async ({ page }) => {
+test('login to admin and update account description', async ({ page, loginUrl }) => {
     const homepage = new logginHomepage(page);
-    await homepage.navigateToLoginPage();
+    await homepage.navigateToLoginPage(loginUrl);
     await homepage.loginIntoApplication('deven', 'Infotech@1');
     await homepage.verifyAdminName();
     await homepage.clickAccountsFromSidebar();
